@@ -8,6 +8,8 @@ import { ClientLayoutComponent } from './layouts/client-layout/client-layout.com
 import { AdminProductListComponent } from './pages/admin-product/admin-product-list/admin-product-list.component';
 import { AdminProductFormComponent } from './pages/admin-product/admin-product-form/admin-product-form.component';
 import { ClientProductFormComponent } from './pages/client-product/client-product-form/client-product-form.component';
+import { SigninComponent } from './pages/login/signin/signin.component';
+import { SignupComponent } from './pages/login/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { ClientProductFormComponent } from './pages/client-product/client-produc
     ClientLayoutComponent,
     AdminProductListComponent,
     AdminProductFormComponent,
-    ClientProductFormComponent
+    ClientProductFormComponent,
+    SigninComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,
