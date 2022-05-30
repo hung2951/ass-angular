@@ -3,10 +3,20 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { ClientLayoutComponent } from './layouts/client-layout/client-layout.component';
+import { AdminProductListComponent } from './pages/admin-product/admin-product-list/admin-product-list.component';
+import { AdminProductFormComponent } from './pages/admin-product/admin-product-form/admin-product-form.component';
+import { ClientProductFormComponent } from './pages/client-product/client-product-form/client-product-form.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AdminLayoutComponent,
+    ClientLayoutComponent,
+    AdminProductListComponent,
+    AdminProductFormComponent,
+    ClientProductFormComponent
   ],
   imports: [
     BrowserModule,
