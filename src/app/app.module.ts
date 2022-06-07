@@ -20,6 +20,12 @@ import { CategorypageComponent } from './pages/client/categorypage/categorypage.
 import { ClientLayoutsNavbarComponent } from './components/client/client-layouts/client-layouts-navbar/client-layouts-navbar.component';
 import { ClientFormSearchComponent } from './components/client/client-form-search/client-form-search.component';
 import { ClientHeroComponent } from './components/client/client-hero/client-hero.component';
+import { ClientHome1Component } from './components/client/client-home/client-home1/client-home1.component';
+import { ClientHome2Component } from './components/client/client-home/client-home2/client-home2.component';
+import { ClientHome3Component } from './components/client/client-home/client-home3/client-home3.component';
+import { ClientHome4Component } from './components/client/client-home/client-home4/client-home4.component';
+import { ClientDetailInfoComponent } from './components/client/client-detail/client-detail-info/client-detail-info.component';
+import { ClientDetailCmtComponent } from './components/client/client-detail/client-detail-cmt/client-detail-cmt.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +47,12 @@ import { ClientHeroComponent } from './components/client/client-hero/client-hero
     ClientLayoutsNavbarComponent,
     ClientFormSearchComponent,
     ClientHeroComponent,
+    ClientHome1Component,
+    ClientHome2Component,
+    ClientHome3Component,
+    ClientHome4Component,
+    ClientDetailInfoComponent,
+    ClientDetailCmtComponent,
   ],
   imports: [
     BrowserModule,
