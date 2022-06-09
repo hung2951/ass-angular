@@ -1,6 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+//
 
+import {HttpClientModule} from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
+//
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
@@ -16,7 +21,6 @@ import { AdminLayoutNavbarComponent } from './components/admin/admin-layouts/adm
 import { HomepageComponent } from './pages/client/homepage/homepage.component';
 import { DetailpageComponent } from './pages/client/detailpage/detailpage.component';
 import { CartpageComponent } from './pages/client/cartpage/cartpage.component';
-import { CategorypageComponent } from './pages/client/categorypage/categorypage.component';
 import { ClientLayoutsNavbarComponent } from './components/client/client-layouts/client-layouts-navbar/client-layouts-navbar.component';
 import { ClientFormSearchComponent } from './components/client/client-form-search/client-form-search.component';
 import { ClientHeroComponent } from './components/client/client-hero/client-hero.component';
@@ -26,7 +30,11 @@ import { ClientHome3Component } from './components/client/client-home/client-hom
 import { ClientHome4Component } from './components/client/client-home/client-home4/client-home4.component';
 import { ClientDetailInfoComponent } from './components/client/client-detail/client-detail-info/client-detail-info.component';
 import { ClientDetailCmtComponent } from './components/client/client-detail/client-detail-cmt/client-detail-cmt.component';
-
+import { ProductsComponent } from './pages/client/products/products.component';
+import { ClientLayoutHeaderCartComponent } from './components/client/client-layouts/client-layout-header-cart/client-layout-header-cart.component';
+import { ProductSearchComponent } from './pages/client/product-search/product-search.component';
+import { CategoryComponent } from './components/client/category/category.component';
+import { ProductCategoryComponent } from './pages/client/product-category/product-category.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +51,6 @@ import { ClientDetailCmtComponent } from './components/client/client-detail/clie
     HomepageComponent,
     DetailpageComponent,
     CartpageComponent,
-    CategorypageComponent,
     ClientLayoutsNavbarComponent,
     ClientFormSearchComponent,
     ClientHeroComponent,
@@ -53,10 +60,18 @@ import { ClientDetailCmtComponent } from './components/client/client-detail/clie
     ClientHome4Component,
     ClientDetailInfoComponent,
     ClientDetailCmtComponent,
+    ProductsComponent,
+    ClientLayoutHeaderCartComponent,
+    ProductSearchComponent,
+    CategoryComponent,
+    ProductCategoryComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

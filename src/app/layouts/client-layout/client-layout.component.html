@@ -45,16 +45,21 @@
                                 <a href="#"><i class="fa fa-linkedin"></i></a>
                                 <a href="#"><i class="fa fa-pinterest-p"></i></a>
                             </div>
-                            <div class="header__top__right__language">
-
-                                <div>Văn Hùng</div>
-                                <span class="arrow_carrot-down"></span>
-                                <ul>
-                                    <li><a routerLink="/admin">Quản trị</a></li>
-                                    <li><a href="#">Đăng xuất</a></li>
+                            <div *ngIf="getLocalstorage()" class="header__top__right__language">
+                                  <div>{{getLocalstorage().user.name}}</div>
+                                  <span class="arrow_carrot-down"></span>
+                                  <ul *ngIf="getLocalstorage().user.role==1">
+                                      <li><a routerLink="/admin">Quản trị</a></li>
+                                      <li><a href="" (click)="logout()">Đăng xuất</a></li>
+                                  </ul>
+                                  <ul *ngIf="getLocalstorage().user.role ==0">
+                                    <li><a href="" (click)="logout()">Đăng xuất</a></li>
                                 </ul>
-                            </div>
-                            <div class="header__top__right__auth">
+                                <div>
+
+                                </div>
+                              </div>
+                            <div *ngIf="!getLocalstorage()" class="header__top__right__auth">
                                 <a routerLink="/signin"><i class="fa fa-user"></i> Đăng nhập</a>
                             </div>
                         </div>
@@ -74,11 +79,7 @@
                 </div>
                 <div class="col-lg-3">
                     <div class="header__cart">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                            <li><a routerLink="/cart"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-                        </ul>
-                        <div class="header__cart__price">item: <span>$150.00</span></div>
+                      <app-client-layout-header-cart></app-client-layout-header-cart>
                     </div>
                 </div>
             </div>

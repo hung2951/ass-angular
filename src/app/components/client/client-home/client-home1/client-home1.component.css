@@ -1,3 +1,11 @@
 .featured__controls ul li a{
   color: black;
 }
+/* .featured__filter{
+ background-color: rgb(240, 240, 240);
+ padding-top: 50px;
+ border-radius: 5px;
+} */
+.featured__item__text h5{
+  color: red;
+}

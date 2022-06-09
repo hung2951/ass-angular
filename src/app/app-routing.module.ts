@@ -14,11 +14,14 @@ import { AdminCategoryListComponent } from './pages/admin/admin-category/admin-c
 import { AdminProductFormComponent } from './pages/admin/admin-product/admin-product-form/admin-product-form.component';
 import { AdminProductListComponent } from './pages/admin/admin-product/admin-product-list/admin-product-list.component';
 import { CartpageComponent } from './pages/client/cartpage/cartpage.component';
-import { CategorypageComponent } from './pages/client/categorypage/categorypage.component';
 import { DetailpageComponent } from './pages/client/detailpage/detailpage.component';
 import { HomepageComponent } from './pages/client/homepage/homepage.component';
+import { ProductCategoryComponent } from './pages/client/product-category/product-category.component';
+import { ProductSearchComponent } from './pages/client/product-search/product-search.component';
+import { ProductsComponent } from './pages/client/products/products.component';
 import { SigninComponent } from './pages/login/signin/signin.component';
 import { SignupComponent } from './pages/login/signup/signup.component';
+import { PrivateRoutingGuard } from './private/private-routing.guard';
 
 const routes: Routes = [
   {
@@ -35,19 +38,22 @@ const routes: Routes = [
           {path:'h4',component:ClientHome4Component},
         ]
       },
-      {path:'detail',component:DetailpageComponent,
+      {path:':id/detail',component:DetailpageComponent,
         children:[
           {path:'',component:ClientDetailCmtComponent},
           {path:'info',component:ClientDetailInfoComponent},
         ]
       },
+      {path:'product',component:ProductsComponent},
       {path:'cart',component:CartpageComponent},
-      {path:'c',component:CategorypageComponent},
+      {path:'c/:id',component:ProductCategoryComponent},
+      {path:'search',component:ProductSearchComponent},
     ]
   },
   {
     path:'admin',
     component:AdminLayoutComponent,
+    canActivate:[PrivateRoutingGuard],
     children:[
       {
       path:'product',
@@ -80,6 +86,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers:[PrivateRoutingGuard]
 })
 export class AppRoutingModule { }

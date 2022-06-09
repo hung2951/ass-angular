@@ -1,0 +1,7 @@
+<div class="hero__categories__all">
+  <i class="fa fa-bars"></i>
+  <span>Danh mục</span>
+</div>
+<ul>
+  <li *ngFor="let category of categories"><a href="/c/{{category._id}}">{{category.name}}</a></li>
+</ul>
