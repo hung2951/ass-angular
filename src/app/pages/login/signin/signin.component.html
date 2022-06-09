@@ -44,6 +44,10 @@
 						</span>
 					</div>
 
+          <div class="vali_auth" >
+            <app-validation [field]="signinForm.get('email')"></app-validation>
+          </div>
+
 					<div class="wrap-input100 validate-input" data-validate = "Password is required">
 						<input class="input100" formControlName="password" type="password" name="pass" placeholder="Password">
 						<span class="focus-input100"></span>
@@ -51,9 +55,11 @@
 							<i class="fa fa-lock" aria-hidden="true"></i>
 						</span>
 					</div>
-
+          <div class="vali_auth" >
+            <app-validation [field]="signinForm.get('password')"></app-validation>
+          </div>
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
+						<button class="login100-form-btn" [disabled]="!signinForm.valid">
 							Đăng nhập
 						</button>
 					</div>

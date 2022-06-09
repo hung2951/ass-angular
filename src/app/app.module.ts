@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgToastModule } from 'ng-angular-popup';
 //
 
 import {HttpClientModule} from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ToastrModule } from 'ngx-toastr';
 //
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -35,6 +35,7 @@ import { ClientLayoutHeaderCartComponent } from './components/client/client-layo
 import { ProductSearchComponent } from './pages/client/product-search/product-search.component';
 import { CategoryComponent } from './components/client/category/category.component';
 import { ProductCategoryComponent } from './pages/client/product-category/product-category.component';
+import { ValidationComponent } from './ultils/validation/validation.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,13 +66,14 @@ import { ProductCategoryComponent } from './pages/client/product-category/produc
     ProductSearchComponent,
     CategoryComponent,
     ProductCategoryComponent,
+    ValidationComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    ToastrModule.forRoot(),
+    NgToastModule
   ],
   providers: [],
   bootstrap: [AppComponent]

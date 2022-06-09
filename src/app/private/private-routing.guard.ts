@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
+import {  NgToastService } from 'ng-angular-popup';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PrivateRoutingGuard implements CanActivate {
-  constructor(private router:Router, private toastr:ToastrService){}
+  constructor(private router:Router, private toastr:NgToastService){}
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
@@ -16,13 +16,13 @@ export class PrivateRoutingGuard implements CanActivate {
       if (this.getLocalstorage().user.role == 1) {
         return true
       }
-      this.toastr.warning("Bạn không có quyền truy cập","Lỗi")
+      this.toastr.error({detail:"Lỗi",summary:'Bạn không có quyền truy cập'});
       setTimeout(() => {
         this.router.navigateByUrl('/signin')
       }, 500);
       return false
     }
-    this.toastr.warning("Bạn không có quyền truy cập","Lỗi")
+    this.toastr.error({detail:"Lỗi",summary:'Bạn không có quyền truy cập'});
       setTimeout(() => {
         this.router.navigateByUrl('/signin')
       }, 500);

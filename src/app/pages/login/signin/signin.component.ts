@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
+import { NgToastService } from 'ng-angular-popup';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -11,19 +11,25 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class SigninComponent implements OnInit {
   signinForm :FormGroup
-  constructor(private authService: AuthService,private router:Router,private toastr:ToastrService) {
+  constructor(private authService: AuthService,private router:Router,private toastr:NgToastService) {
     this.signinForm = new FormGroup({
-      email: new FormControl('',[Validators.required]),
-      password: new FormControl('',[Validators.required])
+      email: new FormControl('',[
+        Validators.required,
+      ]),
+      password: new FormControl('',[
+        Validators.required,
+        Validators.minLength(6)
+      ])
     })
   }
 
   ngOnInit(): void {
 
+
   }
   onSubmit(){
     this.authService.signin(this.signinForm.value).subscribe((data)=>{
-      this.toastr.success('Đăng nhập thành công');
+      this.toastr.success({detail:'Đăng nhập thành công'});
       localStorage.setItem('user',JSON.stringify(data))
 
       setTimeout(() => {
@@ -32,7 +38,7 @@ export class SigninComponent implements OnInit {
 
 
     },()=>{
-      this.toastr.error("Tài khoản hoặc mật khẩu không chính xác")
+      this.toastr.error({detail:"Tài khoản hoặc mật khẩu không chính xác"})
     })
   }
 }

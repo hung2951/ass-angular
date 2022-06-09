@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
+import { NgToastService } from 'ng-angular-popup';
 import { CartService } from 'src/app/services/cart.service';
 import { ProductService } from 'src/app/services/product.service';
 import { ProductType } from 'src/app/type/product';
@@ -18,7 +18,7 @@ export class DetailpageComponent implements OnInit {
     private activeRoute:ActivatedRoute,
     private productService:ProductService,
     private cartService: CartService,
-    private toast:ToastrService
+    private toast:NgToastService
     ) {
     this.id =''
     this.product={
@@ -43,7 +43,7 @@ export class DetailpageComponent implements OnInit {
     this.quantityCart = e.target.value
   }
   showToast(){
-    this.toast.success(`Thêm ${this.product.name} vào giỏ hàng thành công`)
+    this.toast.success({detail:`Thêm vào giỏ hàng thành công`})
 
   }
   addToCart(){

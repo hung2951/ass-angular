@@ -1,0 +1,3 @@
+<div *ngIf="(field.dirty||field.touched)&&field.errors?.['required']" class="text-danger">Không được để trống!</div>
+<div *ngIf="(field.dirty||field.touched)&&field.errors?.['minlength']" class="text-danger">Nhập tối thiểu {{field.errors?.['minlength'].requiredLength}} ký tự!</div>
+
