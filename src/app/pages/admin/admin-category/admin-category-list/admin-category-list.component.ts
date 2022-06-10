@@ -15,9 +15,7 @@ export class AdminCategoryListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.cateService.getCategories().subscribe((data)=>{
-      this.categories = data
-    })
+    this.onGetCategory()
   }
   onStatus(id:string){
     this.categories.map(items=>{
@@ -28,5 +26,18 @@ export class AdminCategoryListComponent implements OnInit {
         })
       }
     })
+  }
+  onGetCategory(){
+    this.cateService.getCategories().subscribe((data)=>{
+      this.categories = data
+    })
+  }
+  onRemove(id:string){
+    const confirmRemove = confirm("Bạn có muốn xóa không?")
+    if (confirmRemove) {
+      this.cateService.removeCate(id).subscribe(()=>{
+        this.onGetCategory()
+      })
+    }
   }
 }

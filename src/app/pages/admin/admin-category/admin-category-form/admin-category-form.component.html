@@ -1,1 +1,8 @@
-<p>admin-category-form works!</p>
+<form  [formGroup]="formSubmit" (ngSubmit)="onSubmit()">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Name</label>
+    <input type="text" class="form-control" formControlName="name" placeholder="Enter name category" >
+    <app-validation [field]="formSubmit.get('name')"></app-validation>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="!formSubmit.valid">Submit</button>
+</form>

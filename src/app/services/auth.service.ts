@@ -20,4 +20,7 @@ export class AuthService {
   getUser():Observable<Auth[]>{
     return this.http.get<Auth[]>(environment.user)
   }
+  updateUser(id:string,data:any):Observable<any>{
+    return this.http.patch(`${environment.user}/${id}`,data)
+  }
 }

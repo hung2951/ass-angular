@@ -10,6 +10,7 @@
                           <th class="border-top-0">#</th>
                           <th class="border-top-0">Name</th>
                           <th class="border-top-0">Status</th>
+                          <th></th>
                       </tr>
                   </thead>
                   <tbody>
@@ -18,8 +19,11 @@
                           <td>
                             <span> {{item.name}}</span>
                           </td>
-                          <td class="status-products-true" *ngIf="item.status==true" (click)="onStatus(item._id!)"><button>Avtived</button></td>
-                          <td class="status-products-false" *ngIf="item.status==false" (click)="onStatus(item._id!)"><button>Disable</button></td>
+                          <td>
+                            <div class="status-products-true" *ngIf="item.status==true" (click)="onStatus(item._id!)"><button>Avtived</button></div>
+                            <div class="status-products-false" *ngIf="item.status==false" (click)="onStatus(item._id!)"><button>Disable</button></div>
+                          </td>
+                          <td><button class="btn btn-danger" (click)="onRemove(item._id!)">Remove</button></td>
                       </tr>
                   </tbody>
               </table>

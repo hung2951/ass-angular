@@ -21,7 +21,14 @@
                           </td>
                           <td>{{item.email}}</td>
                           <td>{{item.role==1?"Admin":"Member"}}</td>
-                          <td ><button (click)="onStatus(item._id!)">{{item.status===true?"Actived":"Disable"}}</button></td>
+                          <td >
+                            <div class="status-products-true">
+                              <button *ngIf="item.status==true" (click)="onStatus(item._id!)">Actived</button>
+                            </div>
+                            <div class="status-products-false">
+                              <button *ngIf="item.status==false" (click)="onStatus(item._id!)">Disable</button>
+                            </div>
+                          </td>
                       </tr>
                   </tbody>
               </table>

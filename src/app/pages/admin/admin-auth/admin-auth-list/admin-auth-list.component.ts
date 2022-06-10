@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgToastService } from 'ng-angular-popup';
 import { AuthService } from 'src/app/services/auth.service';
 import { Auth } from 'src/app/type/auth';
 
@@ -9,7 +10,7 @@ import { Auth } from 'src/app/type/auth';
 })
 export class AdminAuthListComponent implements OnInit {
   users: Auth[]
-  constructor(private authService:AuthService) {
+  constructor(private authService:AuthService,private toast:NgToastService) {
     this.users = []
   }
   ngOnInit(): void {
@@ -24,7 +25,9 @@ export class AdminAuthListComponent implements OnInit {
     this.users.map(items=>{
       if (id===items._id) {
         items.status = !items.status
-
+        this.authService.updateUser(id,{status:items.status}).subscribe(()=>{
+          this.toast.success({detail:`Đã đổi trạng thái thành ${items.status==true?"Actived":"Disable"}`})
+        })
       }
     })
   }
