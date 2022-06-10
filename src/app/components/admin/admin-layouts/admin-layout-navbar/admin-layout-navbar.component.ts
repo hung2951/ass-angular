@@ -11,5 +11,7 @@ export class AdminLayoutNavbarComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  logout(){
+    localStorage.removeItem('user')
+  }
 }

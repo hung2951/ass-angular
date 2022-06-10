@@ -6,7 +6,8 @@ export const environment = {
   signin:`${api}/signin`,
   signup:`${api}/signup`,
   category:`${api}/category`,
-  search:`${api}/search`
+  search:`${api}/search`,
+  user:`${api}/users`,
 
 };
 

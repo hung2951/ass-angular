@@ -25,20 +25,32 @@ export class SigninComponent implements OnInit {
 
   ngOnInit(): void {
 
-
   }
   onSubmit(){
     this.authService.signin(this.signinForm.value).subscribe((data)=>{
-      this.toastr.success({detail:'Đăng nhập thành công'});
       localStorage.setItem('user',JSON.stringify(data))
-
-      setTimeout(() => {
-        this.router.navigateByUrl('/')
-      }, 1000);
-
-
-    },()=>{
+      if (this.getLocalstorage().user.status==true) {
+        this.toastr.success({detail:'Đăng nhập thành công'});
+        if (this.getLocalstorage().user.role==1) {
+          setTimeout(() => {
+            this.router.navigateByUrl('/admin')
+          }, 1000);
+        } else {
+          setTimeout(() => {
+            this.router.navigateByUrl('/')
+          }, 1000);
+        }
+      }else{
+        this.toastr.info({detail:'Tài khoản đã bị vô hiệu quá'});
+        localStorage.removeItem('user')
+      }
+    },
+    ()=>{
       this.toastr.error({detail:"Tài khoản hoặc mật khẩu không chính xác"})
     })
+  }
+  getLocalstorage(){
+    if (!localStorage.getItem('user')) return
+    else return JSON.parse(localStorage.getItem('user') as string)
   }
 }

@@ -26,7 +26,8 @@
                   <p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vestibulum ac diam sit amet quam
                       vehicula elementum sed sit amet dui. Sed porttitor lectus nibh. Vestibulum ac diam sit amet
                       quam vehicula elementum sed sit amet dui. Proin eget tortor risus.</p>
-                  <div class="product__details__quantity">
+                  <div *ngIf="product.status==true">
+                      <div class="product__details__quantity">
                       <div class="quantity">
                           <div class="pro-qty">
                               <input [value]="quantityCart" (input)="onChange($event)" type="number" min="0" value="1">
@@ -34,6 +35,8 @@
                       </div>
                   </div>
                   <button (click)="addToCart()" class="btn btn-primary" style="height: 50px;">Thêm vào giỏ hàng</button>
+                </div>
+                  <p *ngIf="product.status==false" style="color: black; font-weight: bold;font-size: x-large;">Sản phẩm hiện đang hết hàng</p>
                   <ul>
                       <li><b>Kho</b> <span>300</span></li>
                       <li><b>Giao hàng</b> <span>từ 1-3 ngày. <samp>Miễn phí nội thành</samp></span></li>

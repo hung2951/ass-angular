@@ -4,7 +4,7 @@ export type Auth={
   email:string,
   passsword:string,
   role:number,
-  status:string
+  status:boolean
 }
 
 
@@ -15,6 +15,6 @@ export type AuthToken={
     role:number,
     _id:string,
     name:string,
-    status:string
+    status:boolean
   }
 }

@@ -1,11 +1,20 @@
 .featured__controls ul li a{
   color: black;
 }
-/* .featured__filter{
- background-color: rgb(240, 240, 240);
- padding-top: 50px;
- border-radius: 5px;
-} */
 .featured__item__text h5{
   color: red;
+}
+.product_item_false{
+  opacity: 50%;
+  position: relative;
+}
+.product_item_false_message{
+  position: absolute;
+  top: 40%;
+  left: 25%;
+  font-size: 30px;
+  font-family: 'Times New Roman', Times, serif;
+  text-transform: uppercase;
+  opacity: 100%;
+  color: black;
 }

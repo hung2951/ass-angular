@@ -1,18 +1,34 @@
 <app-client-hero></app-client-hero>
 <div style="font-weight: bold;text-align: center;font-size:xx-large ;margin: 10px;" *ngIf="products.length==0">Không tìm thấy sản phẩm với từ khóa "{{key}}"</div>
+<!--  -->
 <div *ngIf="products.length != 0">
   <h2 class="text-center">Sản phẩm tìm kiếm với từ khóa "{{key}}":</h2>
   <div class="product_search">
     <div class="product_search_item" *ngFor="let product of products">
-      <a routerLink="/{{product._id}}/detail">
-        <div class="product_search_item_img" >
-          <img src="{{product.img}}" alt="">
-        </div>
-        <div class="product_search_item_info">
-          <p class="product_search_item_info_name">{{product.name}}</p>
-          <p  class="product_search_item_info_price">{{product.price}}đ</p>
-        </div>
-      </a>
+      <div class="product_item_false" *ngIf="product.status==false"></div>
+      <div *ngIf="product.status==true">
+        <a routerLink="/{{product._id}}/detail">
+          <div class="product_search_item_img" >
+            <img src="{{product.img}}" alt="">
+          </div>
+          <div class="product_search_item_info">
+            <p class="product_search_item_info_name">{{product.name}}</p>
+            <p  class="product_search_item_info_price">{{product.price}}đ</p>
+          </div>
+        </a>
+      </div>
+      <div *ngIf="product.status==false" class="product_false">
+        <a routerLink="/{{product._id}}/detail" class="product_item_false">
+          <div class="product_search_item_img " >
+            <img src="{{product.img}}" alt="">
+          </div>
+          <div class="product_search_item_info">
+            <p class="product_search_item_info_name">{{product.name}}</p>
+            <p  class="product_search_item_info_price">{{product.price}}đ</p>
+          </div>
+        </a>
+        <p class="product_item_messega_false">Hết hàng</p>
+      </div>
     </div>
   </div>
 </div>

@@ -35,3 +35,20 @@
   font-weight: bold;
   padding-bottom: 10px;
 }
+
+.product_item_false{
+  opacity: 50%;
+
+}
+.product_false{
+  position: relative;
+}
+.product_item_messega_false{
+  position: absolute;
+  top: 45%;
+  left: 23%;
+  text-transform: uppercase;
+  color: black;
+  font-size: 30px;
+  font-family: 'Times New Roman', Times, serif;
+}

@@ -1,0 +1,19 @@
+.status-products-true button{
+  border: none;
+  border: none;
+  background-color: blue;
+  color: white;
+  border-radius: 5px;
+  padding: 2px 10px;
+  text-align: center;
+}
+.status-products-false button{
+  border: none;
+  background-color: red;
+  color: white;
+  border-radius: 5px;
+  padding: 2px 10px;
+}
+table{
+  text-align: center;
+}

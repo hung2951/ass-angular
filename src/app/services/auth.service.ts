@@ -17,4 +17,7 @@ export class AuthService {
   signup(data:Auth):Observable<Auth>{
     return this.http.post<Auth>(`${environment.signup}`,data)
   }
+  getUser():Observable<Auth[]>{
+    return this.http.get<Auth[]>(environment.user)
+  }
 }

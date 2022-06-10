@@ -22,4 +22,7 @@ export class ProductService {
   getProductCategory(id:string):Observable<ProductType[]>{
     return this.http.get<ProductType[]>(`${environment.product}/product_category/${id}`)
   }
+  updateStatus(id:string,data:any):Observable<any>{
+    return this.http.patch(`${environment.product}/${id}`,data)
+  }
 }

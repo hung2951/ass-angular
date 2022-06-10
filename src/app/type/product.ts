@@ -4,8 +4,9 @@ export type ProductType = {
   img:string,
   category:string,
   desc?:string,
-  status?:string,
-  price:number
+  status:boolean,
+  price:number,
+  sale_price:number,
 }
 export type ProductCart={
   _id?:string,
@@ -13,7 +14,7 @@ export type ProductCart={
   img:string,
   category:string,
   desc?:string,
-  status?:string,
-  price:number
+  status:boolean,
+  price:number,
   quantity:number
 }

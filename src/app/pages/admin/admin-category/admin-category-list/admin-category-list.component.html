@@ -1,1 +1,29 @@
-<p>admin-category-list works!</p>
+<div class="row">
+  <div class="col-sm-12">
+      <div class="white-box">
+          <h3 class="box-title">Category List</h3>
+          <p class="text-muted"><a routerLink="/admin/category/add">Create category here</a></p>
+          <div class="table-responsive">
+              <table class="table text-nowrap">
+                  <thead>
+                      <tr>
+                          <th class="border-top-0">#</th>
+                          <th class="border-top-0">Name</th>
+                          <th class="border-top-0">Status</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let item of categories;let i = index">
+                          <td>{{i+1}}</td>
+                          <td>
+                            <span> {{item.name}}</span>
+                          </td>
+                          <td class="status-products-true" *ngIf="item.status==true" (click)="onStatus(item._id!)"><button>Avtived</button></td>
+                          <td class="status-products-false" *ngIf="item.status==false" (click)="onStatus(item._id!)"><button>Disable</button></td>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
+      </div>
+  </div>
+</div>

@@ -25,10 +25,11 @@ export class DetailpageComponent implements OnInit {
       _id:'',
       name:'',
       price:0,
+      sale_price:0,
       img:'',
       desc:'',
       category:'',
-      status:'true'
+      status:true
     }
   this.quantityCart =1
   }

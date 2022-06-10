@@ -1,0 +1,14 @@
+.product_item_false_message{
+  position: absolute;
+  top: 40%;
+  left: 26%;
+  font-size: 30px;
+  font-family: 'Times New Roman', Times, serif;
+  opacity: 100%;
+  color: black;
+  text-transform: uppercase;
+}
+.product_item_false{
+  opacity: 50%;
+  position: relative;
+}
