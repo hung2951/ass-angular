@@ -1,0 +1,28 @@
+.form_product{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.form_product input,select,option{
+  width: 90%;
+  height: 40px;
+  background-color: azure;
+  border: none;
+  border: 1px solid black;
+  padding-left: 5px;
+}
+.form_product div{
+  padding: 10px 0;
+}
+.form_product label{
+  font-weight: bold;
+  font-size: 18px;
+}
+textarea{
+  width: 95%;
+  height: 100px;
+}
+form button{
+  margin-top: 20px;
+  width: 150px;
+  border-radius: 5px;
+}

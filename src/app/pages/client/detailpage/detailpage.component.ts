@@ -26,6 +26,7 @@ export class DetailpageComponent implements OnInit {
       name:'',
       price:0,
       sale_price:0,
+      totalNumber:0,
       img:'',
       desc:'',
       category:'',

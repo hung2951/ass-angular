@@ -36,6 +36,7 @@ import { ProductSearchComponent } from './pages/client/product-search/product-se
 import { CategoryComponent } from './components/client/category/category.component';
 import { ProductCategoryComponent } from './pages/client/product-category/product-category.component';
 import { ValidationComponent } from './ultils/validation/validation.component';
+import { Error404Component } from './pages/client/error404/error404.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,6 +68,7 @@ import { ValidationComponent } from './ultils/validation/validation.component';
     CategoryComponent,
     ProductCategoryComponent,
     ValidationComponent,
+    Error404Component,
   ],
   imports: [
     BrowserModule,

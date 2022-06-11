@@ -15,6 +15,7 @@ import { AdminProductFormComponent } from './pages/admin/admin-product/admin-pro
 import { AdminProductListComponent } from './pages/admin/admin-product/admin-product-list/admin-product-list.component';
 import { CartpageComponent } from './pages/client/cartpage/cartpage.component';
 import { DetailpageComponent } from './pages/client/detailpage/detailpage.component';
+import { Error404Component } from './pages/client/error404/error404.component';
 import { HomepageComponent } from './pages/client/homepage/homepage.component';
 import { ProductCategoryComponent } from './pages/client/product-category/product-category.component';
 import { ProductSearchComponent } from './pages/client/product-search/product-search.component';
@@ -59,7 +60,8 @@ const routes: Routes = [
       path:'product',
         children:[
           {path:'',component:AdminProductListComponent},
-          {path:'add',component:AdminProductFormComponent}
+          {path:'add',component:AdminProductFormComponent},
+          {path:'edit/:id',component:AdminProductFormComponent},
         ]
       },
       {
@@ -81,6 +83,10 @@ const routes: Routes = [
   {
     path:'signup',
     component:SignupComponent
+  },
+  {
+    path:'**',
+    component:Error404Component
   }
 ];
 

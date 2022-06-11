@@ -7,6 +7,7 @@ export type ProductType = {
   status:boolean,
   price:number,
   sale_price:number,
+  totalNumber:number
 }
 export type ProductCart={
   _id?:string,

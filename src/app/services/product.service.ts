@@ -25,4 +25,13 @@ export class ProductService {
   updateStatus(id:string,data:any):Observable<any>{
     return this.http.patch(`${environment.product}/${id}`,data)
   }
+  createProduct(data:ProductType):Observable<ProductType>{
+    return this.http.post<ProductType>(`${environment.product}`,data)
+  }
+  removeProduct(id:string):Observable<any>{
+    return this.http.delete(`${environment.product}/${id}`)
+  }
+  updateProduct(id:string,data:ProductType):Observable<ProductType>{
+    return this.http.patch<ProductType>(`${environment.product}/${id}`,data)
+  }
 }

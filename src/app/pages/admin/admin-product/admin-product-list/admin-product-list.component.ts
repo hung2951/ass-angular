@@ -34,4 +34,12 @@ export class AdminProductListComponent implements OnInit {
     })
   }
 
+  onRemove(id:string){
+    const confirmRemove = confirm("Bạn có muốn xóa không?")
+    if (confirmRemove) {
+      this.productService.removeProduct(id).subscribe(()=>{
+        this.getProducts()
+      })
+    }
+  }
 }

@@ -27,7 +27,7 @@
                   </div>
                   <div class="featured__item__text">
                       <h6><a >{{product.name}}</a></h6>
-                      <h5>{{product.price}}đ</h5>
+                      <h5>{{product.price|currency}}</h5>
                   </div>
               </div>
               <div class="featured__item" *ngIf="product.status==false">
@@ -40,7 +40,7 @@
                 </div>
                 <div class="featured__item__text">
                     <h6><a >{{product.name}}</a></h6>
-                    <h5>{{product.price}}đ</h5>
+                    <h5>{{product.price|currency}}</h5>
                 </div>
                 <p class="product_item_false_message">Hết hàng</p>
             </div>

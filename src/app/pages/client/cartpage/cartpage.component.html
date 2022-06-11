@@ -28,7 +28,7 @@
                                   <h5>{{item.name}}</h5>
                               </td>
                               <td class="shoping__cart__price">
-                                {{item.price}}đ
+                                {{item.price|currency}}
                               </td>
                               <td class="shoping__cart__quantity">
                                   <div class="quantity">
@@ -38,7 +38,7 @@
                                   </div>
                               </td>
                               <td class="shoping__cart__total">
-                                {{item.quantity*item.price}}đ
+                                {{item.quantity*item.price|currency}}
                               </td>
                               <td class="shoping__cart__item__close">
                                   <span class="icon_close" (click)="removeCartItem(item._id!)"></span>
@@ -70,9 +70,9 @@
               <div class="shoping__checkout">
                   <h5>Tổng</h5>
                   <ul>
-                      <li>Tạm tính <span>{{total}}đ</span></li>
+                      <li>Tạm tính <span>{{total|currency}}</span></li>
                   </ul>
-                  <a href="#" class="primary-btn">Thanh toán</a>
+                  <a href="/" class="primary-btn">Thanh toán</a>
               </div>
           </div>
       </div>

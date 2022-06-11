@@ -1,16 +1,45 @@
-<form>
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+<form [formGroup]="formSubmit" (ngSubmit)="onSubmit()">
+  <div class="form_product">
+    <div>
+      <div>
+        <label for="">Name: </label><br>
+        <input type="text" formControlName="name" placeholder="Enter name product">
+        <app-validation [field]="formSubmit.get('name')"></app-validation>
+      </div>
+      <div>
+        <label for="">Price: </label><br>
+        <input type="number" formControlName="price" placeholder="Enter price product">
+      </div>
+      <app-validation [field]="formSubmit.get('price')"></app-validation>
+      <div>
+        <label for="">Discount: </label><br>
+        <input type="number" formControlName="sale_price" value="0">
+      </div>
+    </div>
+    <div>
+      <div>
+        <label for="">Quantity:</label><br>
+        <input type="text" value="0" formControlName="totalNumber" placeholder="Enter discount product">
+      </div>
+      <app-validation [field]="formSubmit.get('totalNumber')"></app-validation>
+      <div>
+        <label for="">Category:</label><br>
+        <select formControlName="category" id="" style="text-transform: capitalize;">
+          <option value="">Select category</option>
+          <option *ngFor="let item of categories" value="{{item._id}}">{{item.name}}</option>
+        </select>
+        <app-validation [field]="formSubmit.get('category')"></app-validation>
+      </div>
+      <div>
+        <label for="">Image:</label><br>
+        <input type="text" formControlName="img" placeholder="Enter discount product">
+      </div>
+      <app-validation [field]="formSubmit.get('img')"></app-validation>
+    </div>
   </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
+  <div>
+    <label for="" style="font-weight: bold;font-size: 18px;">Description:</label><br>
+    <textarea formControlName="desc" placeholder="Description"></textarea>
   </div>
-  <div class="mb-3 form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button class="btn btn-primary" [disabled]="!formSubmit.valid">Submit</button>
 </form>

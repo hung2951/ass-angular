@@ -27,7 +27,6 @@ export class AdminCategoryFormComponent implements OnInit {
       this.toast.success({detail:"Thêm thành công"})
       setTimeout(() => {
       this.router.navigateByUrl('/admin/category')
-
       }, 700);
     },()=>{
       this.toast.error({detail:"Lỗi",summary:"Danh mục tồn tại"})

@@ -10,6 +10,13 @@ export class AdminLayoutComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    if (localStorage.getItem('user')) {
+      this.getLocalstorage()
+    }
+  }
+  getLocalstorage(){
+    if (!localStorage.getItem('user')) return
+    else return JSON.parse(localStorage.getItem('user') as string)
   }
 
 }

@@ -17,10 +17,10 @@
                       <tr *ngFor="let item of categories;let i = index">
                           <td>{{i+1}}</td>
                           <td>
-                            <span> {{item.name}}</span>
+                            <span style="text-transform: capitalize;"> {{item.name}}</span>
                           </td>
                           <td>
-                            <div class="status-products-true" *ngIf="item.status==true" (click)="onStatus(item._id!)"><button>Avtived</button></div>
+                            <div class="status-products-true" *ngIf="item.status==true" (click)="onStatus(item._id!)"><button>Actived</button></div>
                             <div class="status-products-false" *ngIf="item.status==false" (click)="onStatus(item._id!)"><button>Disable</button></div>
                           </td>
                           <td><button class="btn btn-danger" (click)="onRemove(item._id!)">Remove</button></td>
