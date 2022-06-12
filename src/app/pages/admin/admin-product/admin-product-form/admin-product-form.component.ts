@@ -67,7 +67,7 @@ export class AdminProductFormComponent implements OnInit {
     }
   }
   onSubmit(){
-    if (this.id!=''|| this.id != undefined) {
+    if ( this.id != undefined) {
       return this.productService.updateProduct(this.id,this.formSubmit.value).subscribe(()=>{
         this.toast.success({detail:`Đã cập nhập ${this.formSubmit.value.name} thành công`})
         setTimeout(() => {
@@ -76,7 +76,7 @@ export class AdminProductFormComponent implements OnInit {
       })
     }
       return this.productService.createProduct(this.formSubmit.value).subscribe(()=>{
-      this.toast.success({detail:`Thêm ${this.formSubmit.value.name}`})
+      this.toast.success({detail:`Thêm ${this.formSubmit.value.name} thành công`})
       setTimeout(() => {
         this.router.navigateByUrl('/admin/product')
       }, 700);
@@ -87,7 +87,7 @@ export class AdminProductFormComponent implements OnInit {
 
   getCategories(){
     this.cateService.getCategories().subscribe((data)=>{
-      this.categories = data
+      this.categories = data.filter(item=>item.status!=false)
     })
   }
 }

@@ -1,5 +1,5 @@
 <app-client-hero></app-client-hero>
-<div *ngIf="productsByCategory.products.length==0">Chưa có sản phẩm nào</div>
+
 
 <section class="featured spad">
   <div class="container">
@@ -10,7 +10,10 @@
               </div>
           </div>
       </div>
-      <div class="row featured__filter" id="MixItUp14A578">
+      <div *ngIf="productsByCategory.products.length==0" style="text-align: center;font-size: 30px;">
+        Hiện tại đang hết hàng
+      </div>
+      <div class="row featured__filter" id="MixItUp14A578" *ngIf="productsByCategory.products.length!==0">
           <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat " *ngFor="let product of productsByCategory.products ">
               <div class="featured__item" *ngIf="product.status==true">
                   <div class="featured__item__pic set-bg" style="background-image: url(&quot;{{product.img}}&quot;); min-height: 500px;">
@@ -22,7 +25,7 @@
                   </div>
                   <div class="featured__item__text">
                       <h6><a href="#">{{product.name}}</a></h6>
-                      <h5>{{product.price}}</h5>
+                      <h5>{{product.price|currency}}</h5>
                   </div>
               </div>
               <div class="featured__item" *ngIf="product.status==false">
@@ -35,7 +38,7 @@
                 </div>
                 <div class="featured__item__text">
                     <h6><a href="#">{{product.name}}</a></h6>
-                    <h5>{{product.price}}</h5>
+                    <h5>{{product.price|currency}}</h5>
                 </div>
                 <p class=" product_item_false_message">Hết Hàng</p>
             </div>

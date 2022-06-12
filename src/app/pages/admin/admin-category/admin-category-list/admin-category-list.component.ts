@@ -22,7 +22,7 @@ export class AdminCategoryListComponent implements OnInit {
       if (items._id==id) {
         items.status = !items.status
         this.cateService.updateCategory(id,{status:items.status}).subscribe(()=>{
-          this.toast.success({detail:`Đã đổi trạng thái thành ${items.status==true?"Actived":"Disable"}`})
+          this.toast.success({detail:`Đã đổi trạng thái thành ${items.status==true?'"Actived"':'"Disable"'}`})
         })
       }
     })
@@ -37,6 +37,12 @@ export class AdminCategoryListComponent implements OnInit {
     if (confirmRemove) {
       this.cateService.removeCate(id).subscribe(()=>{
         this.onGetCategory()
+        this.categories.find(item=>{
+          if (item._id==id) {
+            this.toast.success({detail:`Đã xóa "${item.name}"`})
+          }
+        })
+
       })
     }
   }

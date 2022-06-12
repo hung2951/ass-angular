@@ -27,7 +27,7 @@ export class AdminProductListComponent implements OnInit {
       if (id===items._id) {
         items.status = !items.status
         this.productService.updateStatus(id,{status:items.status}).subscribe(()=>{
-          this.toast.success({detail:`Đã đổi trạng thái thành ${items.status==true?"Actived":"Disable"}`})
+          this.toast.success({detail:`Đã đổi trạng thái thành ${items.status==true?'"Actived"':'"Disable"'}`})
           // this.getProducts()
         })
       }
@@ -38,6 +38,11 @@ export class AdminProductListComponent implements OnInit {
     const confirmRemove = confirm("Bạn có muốn xóa không?")
     if (confirmRemove) {
       this.productService.removeProduct(id).subscribe(()=>{
+        this.products.find(item=>{
+          if (item._id==id) {
+            this.toast.success({detail:`Đã xóa "${item.name}" `})
+          }
+        })
         this.getProducts()
       })
     }

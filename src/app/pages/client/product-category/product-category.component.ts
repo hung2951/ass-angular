@@ -21,6 +21,7 @@ export class ProductCategoryComponent implements OnInit {
     this.id_cate = this.activateRoute.snapshot.params['id']
     this.productService.getProductCategory(this.id_cate).subscribe(data=>{
       this.productsByCategory= data
+      this.getProducts()
     })
   }
 }

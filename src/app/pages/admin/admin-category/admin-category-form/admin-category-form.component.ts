@@ -24,7 +24,7 @@ export class AdminCategoryFormComponent implements OnInit {
   }
   onSubmit(){
     this.cateService.createCate(this.formSubmit.value).subscribe(()=>{
-      this.toast.success({detail:"Thêm thành công"})
+      this.toast.success({detail:`Thêm "${this.formSubmit.value.name}" thành công`})
       setTimeout(() => {
       this.router.navigateByUrl('/admin/category')
       }, 700);

@@ -19,7 +19,7 @@ export class ProductSearchComponent implements OnInit {
   ngOnInit(): void {
     this.key = this.activateRoute.snapshot.queryParams['q']
     this.productServive.getProductSearch(this.key).subscribe(data=>{
-      this.products = data
+      this.products = data.filter(item=>item.status==true)
       console.log(this.products);
 
     })

@@ -26,7 +26,7 @@ export class AdminAuthListComponent implements OnInit {
       if (id===items._id) {
         items.status = !items.status
         this.authService.updateUser(id,{status:items.status}).subscribe(()=>{
-          this.toast.success({detail:`Đã đổi trạng thái thành ${items.status==true?"Actived":"Disable"}`})
+          this.toast.success({detail:`Đã đổi trạng thái thành ${items.status==true?'"Actived"':'"Disable"'}`})
         })
       }
     })

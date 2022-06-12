@@ -23,7 +23,7 @@ export class CategoryComponent implements OnInit {
   }
  getProduct(){
   this.categoryService.getCategories().subscribe(data=>{
-    this.categories = data
+    this.categories = data.filter(item=>item.status==true)
   })
  }
  onRefresh(){
