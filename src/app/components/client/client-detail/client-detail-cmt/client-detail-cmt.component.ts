@@ -13,7 +13,6 @@ export class ClientDetailCmtComponent implements OnInit {
    }
   ngOnInit(): void {
     this.id = this.activateRoute.snapshot.params['id']
-    console.log(this.id);
   }
 
 }

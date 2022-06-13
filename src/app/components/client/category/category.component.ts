@@ -19,14 +19,11 @@ export class CategoryComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getProduct()
+    this.getCategory()
   }
- getProduct(){
+ getCategory(){
   this.categoryService.getCategories().subscribe(data=>{
     this.categories = data.filter(item=>item.status==true)
   })
- }
- onRefresh(){
-
  }
 }

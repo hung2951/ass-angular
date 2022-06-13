@@ -47,14 +47,14 @@
                                 <a href="#"><i class="fa fa-pinterest-p"></i></a>
                             </div>
                             <div *ngIf="getLocalstorage()" class="header__top__right__language">
-                                  <div>{{getLocalstorage().user.name}}</div>
+                                  <div style="text-transform: capitalize;">{{getLocalstorage().user.name}}</div>
                                   <span class="arrow_carrot-down"></span>
                                   <ul *ngIf="getLocalstorage().user.role==1">
                                       <li><a routerLink="/admin">Quản trị</a></li>
-                                      <li><a (click)="logout()">Đăng xuất</a></li>
+                                      <li><a (click)="logout()" routerLink="/signin">Đăng xuất</a></li>
                                   </ul>
                                   <ul *ngIf="getLocalstorage().user.role ==0">
-                                    <li><a href="" (click)="logout()">Đăng xuất</a></li>
+                                    <li><a routerLink="/signin" (click)="logout()">Đăng xuất</a></li>
                                 </ul>
                                 <div>
 

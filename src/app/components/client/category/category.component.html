@@ -4,6 +4,6 @@
 </div>
 <ul>
   <li *ngFor="let category of categories">
-    <a (click)="onRefresh()" routerLink="/c/{{category._id}}">{{category.name}}</a>
+    <a routerLink="/c/{{category._id}}">{{category.name}}</a>
   </li>
 </ul>

@@ -5,7 +5,7 @@
   color: red;
 }
 .product_item_false{
-  opacity: 50%;
+  opacity: 20%;
   position: relative;
 }
 .product_item_false_message{
@@ -17,4 +17,5 @@
   text-transform: uppercase;
   opacity: 100%;
   color: black;
+  font-weight: bold;
 }

@@ -14,7 +14,6 @@ export class ClientLayoutComponent implements OnInit {
   }
   logout(){
     localStorage.removeItem('user')
-    this.router.navigateByUrl('/signin')
   }
   getLocalstorage(){
     if (!localStorage.getItem('user')) return

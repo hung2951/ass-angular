@@ -10,8 +10,10 @@ import { ProductCart } from 'src/app/type/product';
 export class ClientLayoutHeaderCartComponent implements OnInit {
   cartItems: ProductCart[];
   cartItemQuantity: number = 0;
+  total:number
   constructor(private cartService:CartService) {
     this.cartItems = [];
+    this.total = 0
   }
 
   ngOnInit(): void {
@@ -24,5 +26,11 @@ export class ClientLayoutHeaderCartComponent implements OnInit {
   onSetCart() {
     this.cartItems = this.cartService.getItem();
     this.cartItemQuantity = this.cartItems.reduce((a, b) => a + b.quantity, 0);
+    this.cartItems.map(item=>{
+      this.total += item.quantity*item.price
+    })
+
+
+
   }
 }
