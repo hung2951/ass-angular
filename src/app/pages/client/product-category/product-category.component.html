@@ -23,7 +23,7 @@
                   </div>
                   <div class="featured__item__text">
                       <h6><a href="#">{{product.name|uppercase}}</a></h6>
-                      <h5>{{product.price|currency}}</h5>
+                      <h5>{{product.price.toLocaleString('vi', {style : 'currency', currency : 'VND'})}}</h5>
                   </div>
               </div>
               <div class="featured__item" *ngIf="product.totalNumber==0">
@@ -36,7 +36,7 @@
                 </div>
                 <div class="featured__item__text">
                     <h6><a href="#">{{product.name}}</a></h6>
-                    <h5>{{product.price|currency}}</h5>
+                    <h5>{{product.price.toLocaleString('vi', {style : 'currency', currency : 'VND'})}}</h5>
                 </div>
                 <p class=" product_item_false_message">Hết Hàng</p>
             </div>

@@ -27,7 +27,7 @@
                   </div>
                   <div class="featured__item__text">
                       <h6><a >{{product.name|uppercase}}</a></h6>
-                      <h5>{{product.price|currency}}</h5>
+                      <h5>{{product.price.toLocaleString('vi', {style : 'currency', currency : 'VND'})}}</h5>
                   </div>
               </div>
               <div class="featured__item" *ngIf="product.totalNumber==0">
@@ -35,12 +35,12 @@
                     <ul class="featured__item__pic__hover">
                         <li><a ><i class="fa fa-heart"></i></a></li>
                         <li><a routerLink="/{{product._id}}/detail"><i class="fa fa-retweet"></i></a></li>
-                        <li><a ><i class="fa fa-shopping-cart"></i></a></li>
+                        <li><a ><i class="fa fa-shopping-cart" ></i></a></li>
                     </ul>
                 </div>
                 <div class="featured__item__text">
                     <h6><a >{{product.name|uppercase}}</a></h6>
-                    <h5>{{product.price|currency}}</h5>
+                    <h5>{{product.price.toLocaleString('vi', {style : 'currency', currency : 'VND'})}}</h5>
                 </div>
                 <p class="product_item_false_message">Hết hàng</p>
             </div>

@@ -11,7 +11,7 @@
         </div>
         <div class="product_search_item_info">
           <p class="product_search_item_info_name">{{product.name}}</p>
-          <p  class="product_search_item_info_price">{{product.price|currency}}</p>
+          <p  class="product_search_item_info_price">{{product.price.toLocaleString('vi', {style : 'currency', currency : 'VND'})}}</p>
         </div>
       </a>
       <!-- <div *ngIf="product.status==false" class="product_false">

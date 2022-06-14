@@ -18,5 +18,4 @@ export class ClientHome1Component implements OnInit {
       this.products = data.filter(item=>item.status==true)
     })
   }
-
 }

@@ -22,7 +22,7 @@
                       <i class="fa fa-star-half-o"></i>
                       <span>(18 reviews)</span>
                   </div>
-                  <div class="product__details__price">{{product.price|currency}}</div>
+                  <div class="product__details__price">{{product.price.toLocaleString('vi', {style : 'currency', currency : 'VND'})}}</div>
                   <p>{{product.desc}}.</p>
                   <div *ngIf="product.totalNumber>0">
                       <div class="product__details__quantity">

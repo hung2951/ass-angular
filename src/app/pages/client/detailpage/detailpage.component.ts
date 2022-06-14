@@ -4,7 +4,7 @@ import { NgToastService } from 'ng-angular-popup';
 import { CartService } from 'src/app/services/cart.service';
 import { ProductService } from 'src/app/services/product.service';
 import { ProductType } from 'src/app/type/product';
-
+import { formatPrice } from 'src/app/ultils/format-price/format-price';
 @Component({
   selector: 'app-detailpage',
   templateUrl: './detailpage.component.html',
@@ -38,7 +38,7 @@ export class DetailpageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getOneProduct()
+    this.getProduct()
   }
   onChange(e:any){
     this.quantityCart = e.target.value
@@ -56,7 +56,7 @@ export class DetailpageComponent implements OnInit {
     this.quantityCart = 1;
   }
 
-  getOneProduct(){
+  getProduct(){
     this.activateRoute.paramMap.subscribe(params=>{
       this.id = params.get('id') as string
       this.productService.getOneProduct(this.id).subscribe((data)=>{

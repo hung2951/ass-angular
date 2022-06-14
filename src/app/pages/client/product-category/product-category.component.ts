@@ -26,7 +26,6 @@ export class ProductCategoryComponent implements OnInit {
         this.productService.getProductCategory(this.id_cate).subscribe(data=>{
           this.productsByCategory = data
           this.products = this.productsByCategory.products.filter((item:any)=>item.status==true)
-          console.log(this.products);
         })
       }
     })

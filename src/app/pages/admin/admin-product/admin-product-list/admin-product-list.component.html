@@ -23,8 +23,8 @@
                             <img src="{{item.img}}" width="100px" alt="">
                             <span style="text-transform: capitalize;"> {{item.name}}</span>
                           </td>
-                          <td>{{item.price| currency}}</td>
-                          <td>{{item.sale_price|currency}}</td>
+                          <td>{{item.price.toLocaleString('vi', {style : 'currency', currency : 'VND'})}}</td>
+                          <td>{{item.sale_price.toLocaleString('vi', {style : 'currency', currency : 'VND'})}}</td>
                           <td>{{item.totalNumber}}</td>
                           <td>
                             <div class="status-products-true" *ngIf="item.status==true" (click)="onStatus(item._id!)"><button>Actived</button></div>

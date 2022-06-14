@@ -9,3 +9,16 @@
   margin-bottom: 5px;
   font-weight: bold;
 }
+.shoping__cart__quantity input{
+  width: 50px;
+  text-align: center;
+  border: none;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+.shoping__cart__quantity button{
+  border: none;
+  background-color: white;
+  border:  1px solid #ccc;
+  width: 30px;
+}
