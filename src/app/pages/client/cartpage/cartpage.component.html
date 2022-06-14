@@ -33,7 +33,9 @@
                               <td class="shoping__cart__quantity">
                                   <div class="quantity">
                                       <div class="pro-qty">
+                                          <button (click)="decrease(item._id!)">-</button>
                                           <input type="number" value="{{item.quantity}}" min="0">
+                                          <button (click)="increase(item._id!)">+</button>
                                       </div>
                                   </div>
                               </td>
@@ -41,7 +43,7 @@
                                 {{item.quantity*item.price|currency}}
                               </td>
                               <td class="shoping__cart__item__close">
-                                  <span class="icon_close" (click)="removeCartItem(item._id!)"></span>
+                                  <span class="icon_close" (click)="remove(item._id!)"></span>
                               </td>
                           </tr>
                       </tbody>

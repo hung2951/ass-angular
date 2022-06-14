@@ -29,8 +29,5 @@ export class ClientLayoutHeaderCartComponent implements OnInit {
     this.cartItems.map(item=>{
       this.total += item.quantity*item.price
     })
-
-
-
   }
 }

@@ -10,11 +10,9 @@ import { ProductCart } from 'src/app/type/product';
 })
 export class CartpageComponent implements OnInit {
   cart:ProductCart[]
-  total : number
+  total : number = 0
   constructor(private cartService:CartService) {
     this.cart = []
-    this.total = 0
-
    }
 private storageSubject = new Subject<string>();
 
@@ -22,19 +20,26 @@ private storageSubject = new Subject<string>();
     return this.storageSubject.asObservable();
   }
   ngOnInit(): void {
+    this.getItemCart()
+  }
+  getItemCart(){
     if (localStorage.getItem('cart')) {
-      this.cart = JSON.parse(localStorage.getItem('cart') || '[]')
+      this.cart = this.cartService.getItem()
       this.cart.map(item=>{
         this.total += item.quantity*item.price
       })
     }
-
   }
-  removeCartItem(id:string){
-    const confirm = window.confirm("Bạn có muốn xóa không")
-    if (confirm) {
-      this.cart = this.cart.filter(item=>item._id!=id)
-    }
-    localStorage.setItem('cart', JSON.stringify(this.cart));
+  remove(id:string){
+    this.cartService.removeItemCart(id)
+    this.getItemCart()
+  }
+  increase(id:string){
+    this.cartService.increaseItemInCart(id)
+    this.getItemCart()
+  }
+  decrease(id:string){
+    this.cartService.decreaseItemInCart(id)
+    this.getItemCart()
   }
 }

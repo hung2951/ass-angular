@@ -10,6 +10,7 @@ import { Auth } from 'src/app/type/auth';
 })
 export class AdminAuthListComponent implements OnInit {
   users: Auth[]
+  totalUser:number=0
   constructor(private authService:AuthService,private toast:NgToastService) {
     this.users = []
   }
@@ -19,6 +20,7 @@ export class AdminAuthListComponent implements OnInit {
   getUser(){
     this.authService.getUser().subscribe(data=>{
       this.users = data
+      this.users.map((item,count)=>this.totalUser = count+1)
     })
 }
   onStatus(id:string){

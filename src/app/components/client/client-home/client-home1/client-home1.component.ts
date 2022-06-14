@@ -15,7 +15,7 @@ export class ClientHome1Component implements OnInit {
 
   ngOnInit(): void {
     this.productService.getProduct().subscribe((data)=>{
-      this.products = data
+      this.products = data.filter(item=>item.status==true)
     })
   }
 

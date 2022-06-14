@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from 'src/app/services/product.service';
+import { ProductType } from 'src/app/type/product';
 
 @Component({
   selector: 'app-product-category',
@@ -9,6 +10,7 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductCategoryComponent implements OnInit {
   productsByCategory:any
+  products:ProductType[]=[]
   id_cate : string
   constructor(private productService:ProductService,private activateRoute:ActivatedRoute) {
     this.id_cate = ''
@@ -23,10 +25,10 @@ export class ProductCategoryComponent implements OnInit {
       if (this.id_cate) {
         this.productService.getProductCategory(this.id_cate).subscribe(data=>{
           this.productsByCategory = data
-          // this.getProducts()
+          this.products = this.productsByCategory.products.filter((item:any)=>item.status==true)
+          console.log(this.products);
         })
       }
-
     })
 
   }

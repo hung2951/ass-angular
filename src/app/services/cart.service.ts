@@ -40,4 +40,42 @@ export class CartService {
     this.storageSubject.next('');
     // thì watchStorage sẽ được phát sự kiện vào subscibe
   }
+  increaseItemInCart(id:string){
+     // Lấy ra toàn bộ sp trong giỏ
+     const cartItems = this.getItem();
+     cartItems.find((item:ProductCart)=>item._id == id).quantity++;
+
+    localStorage.setItem('cart', JSON.stringify(cartItems));
+    // Sau khi thêm sản phẩm vào giỏ bằng phương thức setItem này
+    this.storageSubject.next('');
+    // thì watchStorage sẽ được phát sự kiện vào subscibe
+  }
+  decreaseItemInCart(id:string){
+    let cartItems = this.getItem();
+    const existItem = cartItems.find((item:ProductCart)=>item._id == id)
+    existItem.quantity--;
+    if (existItem.quantity<1) {
+      const confirmCartItem = confirm("Bạn có muốn xóa sản phẩm này không?")
+      if (confirmCartItem) {
+        cartItems = cartItems.filter((item:any) => item._id !== existItem._id);
+      } else {
+        existItem.quantity = 1
+      }
+    }
+    localStorage.setItem('cart', JSON.stringify(cartItems));
+    // Sau khi thêm sản phẩm vào giỏ bằng phương thức setItem này
+    this.storageSubject.next('');
+    // thì watchStorage sẽ được phát sự kiện vào subscibe
+  }
+  removeItemCart(id:string){
+    let cartItems = this.getItem();
+    const confirm = window.confirm("Bạn có muốn xóa không")
+    if (confirm) {
+      cartItems = cartItems.filter((item:any)=>item._id!=id)
+    }
+    localStorage.setItem('cart', JSON.stringify(cartItems));
+    // Sau khi thêm sản phẩm vào giỏ bằng phương thức setItem này
+    this.storageSubject.next('');
+    // thì watchStorage sẽ được phát sự kiện vào subscibe
+  }
 }

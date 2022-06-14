@@ -17,7 +17,7 @@
       </div>
       <div class="row featured__filter" id="MixItUp14A578">
           <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat " *ngFor="let product of products" >
-              <div class="featured__item" *ngIf="product.status==true">
+              <div class="featured__item" *ngIf="product.totalNumber>0">
                   <div class="featured__item__pic set-bg" style="background-image: url(&quot;{{product.img}}&quot;); min-height: 500px;">
                       <ul class="featured__item__pic__hover">
                           <li><a ><i class="fa fa-heart"></i></a></li>
@@ -26,11 +26,11 @@
                       </ul>
                   </div>
                   <div class="featured__item__text">
-                      <h6><a >{{product.name}}</a></h6>
+                      <h6><a >{{product.name|uppercase}}</a></h6>
                       <h5>{{product.price|currency}}</h5>
                   </div>
               </div>
-              <div class="featured__item" *ngIf="product.status==false">
+              <div class="featured__item" *ngIf="product.totalNumber==0">
                 <div class="featured__item__pic set-bg product_item_false" style="background-image: url(&quot;{{product.img}}&quot;); min-height: 500px;">
                     <ul class="featured__item__pic__hover">
                         <li><a ><i class="fa fa-heart"></i></a></li>
@@ -39,7 +39,7 @@
                     </ul>
                 </div>
                 <div class="featured__item__text">
-                    <h6><a >{{product.name}}</a></h6>
+                    <h6><a >{{product.name|uppercase}}</a></h6>
                     <h5>{{product.price|currency}}</h5>
                 </div>
                 <p class="product_item_false_message">Hết hàng</p>

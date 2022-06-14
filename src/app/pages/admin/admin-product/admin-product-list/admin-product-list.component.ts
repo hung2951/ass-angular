@@ -10,6 +10,7 @@ import { ProductType } from 'src/app/type/product';
 })
 export class AdminProductListComponent implements OnInit {
   products :ProductType[]
+  totalProduct:number=0
   constructor(private productService:ProductService,private toast :NgToastService) {
     this.products = []
    }
@@ -20,6 +21,7 @@ export class AdminProductListComponent implements OnInit {
   getProducts(){
     this.productService.getProduct().subscribe(data =>{
       this.products = data
+      this.products.map((item,count)=>this.totalProduct =count+1 )
     })
   }
   onStatus(id:string){

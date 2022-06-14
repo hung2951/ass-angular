@@ -10,6 +10,7 @@ import { categoryType } from 'src/app/type/category';
 })
 export class AdminCategoryListComponent implements OnInit {
   categories:categoryType[]
+  totalCategory: number =0
   constructor(private cateService : CategoryService, private toast : NgToastService) {
     this.categories = []
   }
@@ -30,6 +31,7 @@ export class AdminCategoryListComponent implements OnInit {
   onGetCategory(){
     this.cateService.getCategories().subscribe((data)=>{
       this.categories = data
+      this.categories.map((item,count)=>this.totalCategory = count+1)
     })
   }
   onRemove(id:string){
