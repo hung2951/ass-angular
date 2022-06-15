@@ -78,4 +78,8 @@ export class CartService {
     this.storageSubject.next('');
     // thì watchStorage sẽ được phát sự kiện vào subscibe
   }
+  removeCart(){
+    localStorage.removeItem('cart')
+    this.storageSubject.next('');
+  }
 }

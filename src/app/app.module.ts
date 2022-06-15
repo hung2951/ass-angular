@@ -37,6 +37,8 @@ import { CategoryComponent } from './components/client/category/category.compone
 import { ProductCategoryComponent } from './pages/client/product-category/product-category.component';
 import { ValidationComponent } from './ultils/validation/validation.component';
 import { Error404Component } from './pages/client/error404/error404.component';
+import { CheckOutComponent } from './pages/client/check-out/check-out.component';
+import { SuccessMessageComponent } from './pages/client/success-message/success-message.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,6 +71,8 @@ import { Error404Component } from './pages/client/error404/error404.component';
     ProductCategoryComponent,
     ValidationComponent,
     Error404Component,
+    CheckOutComponent,
+    SuccessMessageComponent,
   ],
   imports: [
     BrowserModule,

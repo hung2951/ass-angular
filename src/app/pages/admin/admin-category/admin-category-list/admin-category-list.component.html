@@ -23,7 +23,10 @@
                             <div class="status-products-true" *ngIf="item.status==true" (click)="onStatus(item._id!)"><button>Actived</button></div>
                             <div class="status-products-false" *ngIf="item.status==false" (click)="onStatus(item._id!)"><button>Disable</button></div>
                           </td>
-                          <td><button class="btn btn-danger" (click)="onRemove(item._id!)">Remove</button></td>
+                          <td>
+                            <button class="btn btn-success" routerLink="/admin/category/{{item._id}}/edit">Edit</button>
+                            <button class="btn btn-danger" (click)="onRemove(item._id!)">Remove</button>
+                          </td>
                       </tr>
                   </tbody>
               </table>

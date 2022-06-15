@@ -1,0 +1,11 @@
+.checkout__input p{
+  font-weight: bold;
+}
+.checkout__order__products,.checkout__order ul li{
+  display: flex;
+  justify-content: space-between;
+}
+.checkout__order__products p{
+  font-weight: bold;
+  color: black;
+}

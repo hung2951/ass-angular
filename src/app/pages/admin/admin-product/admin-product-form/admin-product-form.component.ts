@@ -29,7 +29,7 @@ export class AdminProductFormComponent implements OnInit {
           Validators.minLength(5)
         ]),
         price:new FormControl(0,[
-          Validators.required
+          Validators.required,
         ]),
         sale_price:new FormControl(0),
         totalNumber:new FormControl(0),

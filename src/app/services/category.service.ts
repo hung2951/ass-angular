@@ -14,6 +14,9 @@ export class CategoryService {
    getCategories():Observable<categoryType[]>{
      return this.http.get<categoryType[]>(environment.category)
    }
+   getOneCategories(id:string):Observable<categoryType>{
+    return this.http.get<categoryType>(`${environment.category}/${id}`)
+  }
    updateCategory(id:string,data:categoryType):Observable<categoryType>{
      return this.http.patch<categoryType>(`${environment.category}/${id}`,data)
    }

@@ -14,12 +14,14 @@ import { AdminCategoryListComponent } from './pages/admin/admin-category/admin-c
 import { AdminProductFormComponent } from './pages/admin/admin-product/admin-product-form/admin-product-form.component';
 import { AdminProductListComponent } from './pages/admin/admin-product/admin-product-list/admin-product-list.component';
 import { CartpageComponent } from './pages/client/cartpage/cartpage.component';
+import { CheckOutComponent } from './pages/client/check-out/check-out.component';
 import { DetailpageComponent } from './pages/client/detailpage/detailpage.component';
 import { Error404Component } from './pages/client/error404/error404.component';
 import { HomepageComponent } from './pages/client/homepage/homepage.component';
 import { ProductCategoryComponent } from './pages/client/product-category/product-category.component';
 import { ProductSearchComponent } from './pages/client/product-search/product-search.component';
 import { ProductsComponent } from './pages/client/products/products.component';
+import { SuccessMessageComponent } from './pages/client/success-message/success-message.component';
 import { SigninComponent } from './pages/login/signin/signin.component';
 import { SignupComponent } from './pages/login/signup/signup.component';
 import { PrivateRoutingGuard } from './private/private-routing.guard';
@@ -49,6 +51,8 @@ const routes: Routes = [
       {path:'cart',component:CartpageComponent},
       {path:'c/:id',component:ProductCategoryComponent},
       {path:'search',component:ProductSearchComponent},
+      {path:'checkout',component:CheckOutComponent},
+      {path:'success/:id',component:SuccessMessageComponent},
     ]
   },
   {
@@ -69,6 +73,7 @@ const routes: Routes = [
         children:[
           {path:'',component:AdminCategoryListComponent},
           {path:'add',component:AdminCategoryFormComponent},
+          {path:':id/edit',component:AdminCategoryFormComponent},
         ]
       },
       {

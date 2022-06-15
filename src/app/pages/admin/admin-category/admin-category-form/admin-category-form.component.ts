@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
 import { CategoryService } from 'src/app/services/category.service';
 
@@ -11,7 +11,13 @@ import { CategoryService } from 'src/app/services/category.service';
 })
 export class AdminCategoryFormComponent implements OnInit {
   formSubmit:FormGroup
-  constructor(private cateService:CategoryService,private router:Router,private toast:NgToastService) {
+  id:string=''
+  constructor(
+    private cateService:CategoryService,
+    private router:Router,
+    private toast:NgToastService,
+    private activateRoute: ActivatedRoute
+    ) {
     this.formSubmit = new FormGroup({
       name: new FormControl('',[
         Validators.required,
@@ -21,9 +27,26 @@ export class AdminCategoryFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.id = this.activateRoute.snapshot.params['id']
+    if (this.id) {
+      this.cateService.getOneCategories(this.id).subscribe(data=>{
+        this.formSubmit.patchValue({
+          name:data.name,
+          status:data.status
+        })
+      })
+    }
   }
   onSubmit(){
-    this.cateService.createCate(this.formSubmit.value).subscribe(()=>{
+    if (this.id != undefined) {
+      return this.cateService.updateCategory(this.id,this.formSubmit.value).subscribe(()=>{
+        this.toast.success({detail:`Sửa "${this.formSubmit.value.name}" thành công`})
+        setTimeout(() => {
+          this.router.navigateByUrl('/admin/category')
+          }, 700);
+      })
+    }
+    return this.cateService.createCate(this.formSubmit.value).subscribe(()=>{
       this.toast.success({detail:`Thêm "${this.formSubmit.value.name}" thành công`})
       setTimeout(() => {
       this.router.navigateByUrl('/admin/category')

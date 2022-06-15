@@ -1,0 +1,59 @@
+<section class="checkout spad">
+  <div class="container">
+      <div class="checkout__form">
+          <h4>Thanh toán</h4>
+          <form [formGroup]="formCheckout" (ngSubmit)="onSubmit()">
+              <div class="row">
+                  <div class="col-lg-8 col-md-6">
+                      <div class="row">
+                          <div class="col-lg-6">
+                              <div class="checkout__input">
+                                  <p>Họ và tên<span>*</span></p>
+                                  <input type="text" formControlName="name">
+                              </div>
+                              <app-validation [field]="formCheckout.get('name')"></app-validation>
+                          </div>
+                          <div class="col-lg-6">
+                              <div class="checkout__input">
+                                  <p>Số điện thoại<span>*</span></p>
+                                  <input type="text" formControlName="phone">
+                              </div>
+                          <app-validation [field]="formCheckout.get('phone')"></app-validation>
+                          </div>
+                      </div>
+                      <div class="checkout__input">
+                          <p>Địa chỉ<span>*</span></p>
+                          <input type="text" formControlName="address">
+                      </div>
+                      <app-validation [field]="formCheckout.get('address')"></app-validation>
+                      <div class="checkout__input">
+                        <p>Email<span>*</span></p>
+                        <input type="text" formControlName="email">
+                    </div>
+                    <app-validation [field]="formCheckout.get('email')"></app-validation>
+                  </div>
+                  <!--  -->
+                  <div class="col-lg-4 col-md-6">
+                      <div class="checkout__order">
+                          <h4>Đơn hàng</h4>
+                          <div class="checkout__order__products">
+                            <p>Sản phẩm</p>
+                            <p>Số lượng</p>
+                            <p>Tổng tiền</p>
+                          </div>
+                          <ul>
+                              <li *ngFor="let item of cart">
+                                <p>{{item.name}}</p>
+                                <p>x{{item.quantity}}</p>
+                                <p>{{(item.price*item.quantity).toLocaleString('vi', {style : 'currency', currency : 'VND'})}}</p>
+                              </li>
+                          </ul>
+                          <div class="checkout__order__total">Tiền thanh toán <span>{{total.toLocaleString('vi', {style : 'currency', currency : 'VND'})}}</span></div>
+                          <button type="submit" class="site-btn" [disabled]="!formCheckout.valid">Đặt hàng</button>
+                      </div>
+                  </div>
+              </div>
+          </form>
+      </div>
+  </div>
+</section>

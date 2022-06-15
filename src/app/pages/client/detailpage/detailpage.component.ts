@@ -50,6 +50,7 @@ export class DetailpageComponent implements OnInit {
     this.showToast()
     const addItem = {
       ...this.product,
+      idProduct:this.product._id,
       quantity: +this.quantityCart
     }
     this.cartService.setItem(addItem);
