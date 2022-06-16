@@ -16,4 +16,13 @@ export class CheckoutService {
   createOrderDetail(data:any):Observable<any>{
     return this.http.post<any>(environment.orderDetail,data)
   }
+  getOrders():Observable<any[]>{
+    return this.http.get<any[]>(environment.orders)
+  }
+  getOrderDetail(id:string):Observable<any[]>{
+    return this.http.get<any[]>(`${environment.orders}/getOrder/${id}`)
+  }
+  updateOrder(id:string,data:any):Observable<any>{
+    return this.http.patch(`${environment.orders}/${id}`,data)
+  }
 }

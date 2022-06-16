@@ -1,0 +1,12 @@
+<form [formGroup]="formOrder" onsubmit="onSubmit()">
+  <label for="">
+    <input type="radio" name="status" checked value="1" formControlName="status"> Đang giao hàng
+  </label>
+  <label for="">
+    <input type="radio" name="status" value="2" formControlName="status"> Giao hàng thành công
+  </label>
+  <label for="">
+    <input type="radio" name="status" value="3" formControlName="status"> Hủy đơn hàng
+  </label> <br>
+  <button class="btn btn-primary">Submit</button>
+</form>

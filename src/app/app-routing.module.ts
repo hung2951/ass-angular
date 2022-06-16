@@ -13,6 +13,9 @@ import { AdminCategoryFormComponent } from './pages/admin/admin-category/admin-c
 import { AdminCategoryListComponent } from './pages/admin/admin-category/admin-category-list/admin-category-list.component';
 import { AdminProductFormComponent } from './pages/admin/admin-product/admin-product-form/admin-product-form.component';
 import { AdminProductListComponent } from './pages/admin/admin-product/admin-product-list/admin-product-list.component';
+import { OrderDetailComponent } from './pages/admin/order-detail/order-detail.component';
+import { OrdersComponent } from './pages/admin/orders/orders.component';
+import { StatusOrderComponent } from './pages/admin/status-order/status-order.component';
 import { CartpageComponent } from './pages/client/cartpage/cartpage.component';
 import { CheckOutComponent } from './pages/client/check-out/check-out.component';
 import { DetailpageComponent } from './pages/client/detailpage/detailpage.component';
@@ -75,6 +78,15 @@ const routes: Routes = [
           {path:'add',component:AdminCategoryFormComponent},
           {path:':id/edit',component:AdminCategoryFormComponent},
         ]
+      },
+      {
+        path:'orders',component:OrdersComponent
+      },
+      {
+        path:':id/order-detail',component:OrderDetailComponent
+      },
+      {
+        path:':id/status',component:StatusOrderComponent
       },
       {
         path:'users',component:AdminAuthListComponent

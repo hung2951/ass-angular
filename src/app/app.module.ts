@@ -39,6 +39,9 @@ import { ValidationComponent } from './ultils/validation/validation.component';
 import { Error404Component } from './pages/client/error404/error404.component';
 import { CheckOutComponent } from './pages/client/check-out/check-out.component';
 import { SuccessMessageComponent } from './pages/client/success-message/success-message.component';
+import { OrdersComponent } from './pages/admin/orders/orders.component';
+import { OrderDetailComponent } from './pages/admin/order-detail/order-detail.component';
+import { StatusOrderComponent } from './pages/admin/status-order/status-order.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,6 +76,9 @@ import { SuccessMessageComponent } from './pages/client/success-message/success-
     Error404Component,
     CheckOutComponent,
     SuccessMessageComponent,
+    OrdersComponent,
+    OrderDetailComponent,
+    StatusOrderComponent,
   ],
   imports: [
     BrowserModule,

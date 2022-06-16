@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-sm-12">
+      <div class="white-box">
+          <h3 class="box-title">Orders List ( {{count}} )</h3>
+          <div class="table-responsive">
+              <table class="table text-nowrap">
+                  <thead>
+                      <tr>
+                          <th class="border-top-0">ID Orders</th>
+                          <th class="border-top-0">Name</th>
+                          <th class="border-top-0">Number Phone</th>
+                          <th class="border-top-0">Money</th>
+                          <th class="border-top-0">Status</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let item of orders">
+                          <td><a routerLink="/admin/{{item._id}}/order-detail">{{item._id}}</a></td>
+                          <td>
+                            <span style="text-transform: capitalize;">{{item.name}} </span>
+                          </td>
+                          <td>{{item.phone}}</td>
+                          <td>{{item.money.toLocaleString('vi', {style : 'currency', currency : 'VND'})}}</td>
+                          <td>
+                            <a routerLink="/admin/{{item._id}}/status">
+                              <span *ngIf="item.status==0">Chưa xác nhận</span>
+                              <span *ngIf="item.status==1">Đang giao hàng</span>
+                              <span *ngIf="item.status==3">Giao hàng thất bại</span>
+                            </a>
+                            <span *ngIf="item.status==2">Giao hàng thành công</span>
+                          </td>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
+      </div>
+  </div>
+</div>
