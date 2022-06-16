@@ -1,0 +1,21 @@
+.btn_true{
+  background-color: blue;
+  padding: 10px 20px;
+  color: #fff;
+  border-radius: 5px;
+}
+.btn_false{
+  background-color: red;
+  padding: 10px 20px;
+  color: #fff;
+  border-radius: 5px;
+}
+button{
+  margin: 0 50px;
+  border: none;
+}
+div{
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}

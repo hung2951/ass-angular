@@ -19,6 +19,9 @@ export class CheckoutService {
   getOrders():Observable<any[]>{
     return this.http.get<any[]>(environment.orders)
   }
+  getOneOrders(id:string):Observable<any>{
+    return this.http.get(`${environment.orders}/${id}`)
+  }
   getOrderDetail(id:string):Observable<any[]>{
     return this.http.get<any[]>(`${environment.orders}/getOrder/${id}`)
   }

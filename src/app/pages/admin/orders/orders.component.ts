@@ -13,7 +13,7 @@ export class OrdersComponent implements OnInit {
 
   ngOnInit(): void {
     this.checkoutService.getOrders().subscribe((data)=>{
-      this.orders = data
+      this.orders = data.sort((a:any,b:any)=>a.status - b.status)
       this.orders.map((item,i)=>this.count =i+1 )
     })
   }

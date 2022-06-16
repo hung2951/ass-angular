@@ -1,12 +1,10 @@
-<form [formGroup]="formOrder" onsubmit="onSubmit()">
-  <label for="">
-    <input type="radio" name="status" checked value="1" formControlName="status"> Đang giao hàng
-  </label>
-  <label for="">
-    <input type="radio" name="status" value="2" formControlName="status"> Giao hàng thành công
-  </label>
-  <label for="">
-    <input type="radio" name="status" value="3" formControlName="status"> Hủy đơn hàng
-  </label> <br>
-  <button class="btn btn-primary">Submit</button>
-</form>
+<div>
+  <button (click)="onStatus(1)" class="btn_true" *ngIf="order.status==1">Đang giao hàng</button>
+  <button (click)="onStatus(1)" class="btn_false" *ngIf="order.status!=1">Đang giao hàng</button>
+
+  <button (click)="onStatus(2)" class="btn_true" *ngIf="order.status==2">Giao hàng thành công</button>
+  <button (click)="onStatus(2)" class="btn_false" *ngIf="order.status!=2">Giao hàng thành công</button>
+
+  <button (click)="onStatus(3)" class="btn_true" *ngIf="order.status==3">Hủy đơn hàng </button>
+  <button (click)="onStatus(3)" class="btn_false" *ngIf="order.status!=3">Hủy đơn hàng</button>
+</div>
