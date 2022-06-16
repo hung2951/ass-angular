@@ -1,0 +1,56 @@
+<div>
+  <h2>Kiểm tra đơn hàng của bạn</h2>
+  <form [formGroup]="formOrders" (ngSubmit)="onSubmit()">
+    <input type="text" formControlName="id" placeholder="Mã đơn hàng">
+    <button>Kiểm tra</button>
+  </form>
+</div>
+<!-- <div *ngIf="!orders">
+  Mã đơn hàng không tồn tại
+</div> -->
+<div *ngIf="orders">
+  <div class="info_orders">
+    <h3>Thông tin người nhận: </h3>
+    <p>Họ tên: {{orders.idOrder.name}} </p>
+    <p>Email: {{orders.idOrder.email}}</p>
+    <p>SĐT: {{orders.idOrder.phone}}</p>
+    <p>Địa chỉ: {{orders.idOrder.address}}</p>
+    <p>Trạng thái đơn hàng:
+      <span *ngIf="orders.idOrder.status==0" style="color: blue;">Chưa xác nhận</span>
+      <span *ngIf="orders.idOrder.status==1" style="color: blue;">Đang giao hàng</span>
+      <span *ngIf="orders.idOrder.status==3" style="color: blue;">Giao hàng thất bại</span>
+      <span *ngIf="orders.idOrder.status==2" style="color: blue;">Giao hàng thành công</span>
+    </p>
+  </div>
+  <div class="product_orders">
+    <h3>Thông tin sản phẩm đặt hàng:</h3>
+    <table class="table text-nowrap">
+        <thead>
+            <tr>
+                <th class="border-top-0">#</th>
+                <th class="border-top-0">Sản phẩm</th>
+                <th class="border-top-0">Đơn giá</th>
+                <th class="border-top-0">Số lượng</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of orders.orderDetail,let i = index">
+                <td>{{i+1}}</td>
+                <td>
+                  <img src="{{item.img}}" width="50px" alt="">
+                  <span style="text-transform: capitalize;"> {{item.name}}</span>
+                </td>
+                <td>{{item.price.toLocaleString('vi', {style : 'currency', currency : 'VND'})}}</td>
+                <td>x{{item.quantity}}</td>
+            </tr>
+        </tbody>
+        <tfoot >
+          <tr>
+            <td colspan="3" class="text-center">Tổng tiền:</td>
+            <td style="color: red;">{{orders.idOrder.money.toLocaleString('vi', {style : 'currency', currency : 'VND'})}}</td>
+        </tr>
+        </tfoot>
+    </table>
+  </div>
+
+</div>

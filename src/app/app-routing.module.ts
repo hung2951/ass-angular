@@ -21,6 +21,7 @@ import { CheckOutComponent } from './pages/client/check-out/check-out.component'
 import { DetailpageComponent } from './pages/client/detailpage/detailpage.component';
 import { Error404Component } from './pages/client/error404/error404.component';
 import { HomepageComponent } from './pages/client/homepage/homepage.component';
+import { OrdersClientComponent } from './pages/client/orders-client/orders-client.component';
 import { ProductCategoryComponent } from './pages/client/product-category/product-category.component';
 import { ProductSearchComponent } from './pages/client/product-search/product-search.component';
 import { ProductsComponent } from './pages/client/products/products.component';
@@ -56,6 +57,7 @@ const routes: Routes = [
       {path:'search',component:ProductSearchComponent},
       {path:'checkout',component:CheckOutComponent},
       {path:'success/:id',component:SuccessMessageComponent},
+      {path:'orders',component:OrdersClientComponent},
     ]
   },
   {

@@ -57,11 +57,13 @@
                                     <li><a routerLink="/signin" (click)="logout()">Đăng xuất</a></li>
                                 </ul>
                                 <div>
-
                                 </div>
                               </div>
                             <div *ngIf="!getLocalstorage()" class="header__top__right__auth">
                                 <a routerLink="/signin"><i class="fa fa-user"></i> Đăng nhập</a>
+                            </div>
+                            <div class="header__top__right__social">
+                              <a routerLink="/orders">Orders</a>
                             </div>
                         </div>
                     </div>

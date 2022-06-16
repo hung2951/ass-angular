@@ -42,6 +42,7 @@ import { SuccessMessageComponent } from './pages/client/success-message/success-
 import { OrdersComponent } from './pages/admin/orders/orders.component';
 import { OrderDetailComponent } from './pages/admin/order-detail/order-detail.component';
 import { StatusOrderComponent } from './pages/admin/status-order/status-order.component';
+import { OrdersClientComponent } from './pages/client/orders-client/orders-client.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -79,6 +80,7 @@ import { StatusOrderComponent } from './pages/admin/status-order/status-order.co
     OrdersComponent,
     OrderDetailComponent,
     StatusOrderComponent,
+    OrdersClientComponent,
   ],
   imports: [
     BrowserModule,
