@@ -25,7 +25,7 @@
                             <a routerLink="/admin/{{item._id}}/status">
                               <span *ngIf="item.status==0">Chưa xác nhận</span>
                               <span *ngIf="item.status==1">Đang giao hàng</span>
-                              <span *ngIf="item.status==3">Giao hàng thất bại</span>
+                              <span *ngIf="item.status==3">Hủy đơn hàng</span>
                             </a>
                             <span *ngIf="item.status==2">Giao hàng thành công</span>
                           </td>

@@ -17,6 +17,10 @@
       <td>Address:</td>
       <td>{{order.idOrder.address}}</td>
     </tr>
+    <tr>
+      <td>Date:</td>
+      <td>{{order.idOrder.createdAt| date: "d/MM/yyyy, h:mm a"}}</td>
+    </tr>
   </table>
 </div>
 <div class="table-responsive">
