@@ -19,11 +19,9 @@ export class OrdersClientComponent implements OnInit {
   ngOnInit(): void {
   }
   onSubmit(){
-    console.log(this.formOrders.value.id);
     this.checkoutService.getOrderDetail(this.formOrders.value.id).subscribe(data=>{
       this.orders = data
       console.log(this.orders);
-
     })
   }
 }
